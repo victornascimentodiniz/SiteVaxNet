@@ -13,8 +13,14 @@
     <ul>
       <li><a href="Home.php">Home</a></li>
       <li><a href="Cadastro_Animais.php">Cadastro de Vacinas</a></li>
-      <li><a href="#">Sobre</a></li>
-      <li><a href="#">Contato</a></li>
+      <li><a href="">Vacinas</a></li>
+      <li><a href="">Animais</a></li>
+      <li><a href="">Veterinario</a></li>
+      <li><a href="">Mensagens Automáticas</a></li>
+      <li><a href="">Monitoramento</a></li>
+      <li><a href="Sobre.php">Sobre</a></li>
+      <li><a href="Contato.php">Contato</a></li>
+
     </ul>
   </nav>
 </body>
