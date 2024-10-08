@@ -1,9 +1,10 @@
 <?php
+session_start(); // Inicia a sessão
 // Configuração de conexão ao banco de dados
 $servername = "localhost";
-$username = "root";  // Seu usuário MySQL
-$password = "";      // Sua senha MySQL
-$dbname = "VaxNet";  // Seu banco de dados
+$username = "root";  
+$password = "";      
+$dbname = "VaxNet";  
 
 // Criar conexão
 $conn = new mysqli($servername, $username, $password, $dbname);
@@ -23,21 +24,27 @@ $sexo = $_POST['sexo'];
 $identificacao = $_POST['identificacao'];
 $vacinas = $_POST['vacinas'];
 $data_cadastro = $_POST['data_cadastro'];
-$proxima_vacina = $_POST['proxima_vacina'];
 $responsavel = $_POST['responsavel'];
 $contato_responsavel = $_POST['contato_responsavel'];
 $observacoes = $_POST['observacoes'];
 
-// Inserir dados no banco de dados
-$sql = "INSERT INTO cadastros_animais (nome, raca, idade, data_nascimento, cor, sexo, identificacao, vacinas, data_cadastro, proxima_vacina, responsavel, contato_responsavel, observacoes)
-        VALUES ('$nome', '$raca', '$idade', '$data_nascimento', '$cor', '$sexo', '$identificacao', '$vacinas', '$data_cadastro', '$proxima_vacina', '$responsavel', '$contato_responsavel', '$observacoes')";
+// Preparar e vincular
+$stmt = $conn->prepare("INSERT INTO cadastros_animais (nome, raca, idade, data_nascimento, cor, sexo, identificacao, vacinas, data_cadastro, responsavel, contato_responsavel, observacoes)
+                        VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+$stmt->bind_param("ssiissssssss", $nome, $raca, $idade, $data_nascimento, $cor, $sexo, $identificacao, $vacinas, $data_cadastro, $responsavel, $contato_responsavel, $observacoes);
 
-if ($conn->query($sql) === TRUE) {
-    echo "Cadastro realizado com sucesso!";
+// Executar a consulta
+if ($stmt->execute()) {
+    $_SESSION['success_message'] = "Cadastro realizado com sucesso!";
+    header('Location: Cadastro_Animais.php'); // Redireciona de volta para a página de cadastro
+    exit(); // Para garantir que o script pare aqui
 } else {
-    echo "Erro: " . $sql . "<br>" . $conn->error;
+    $_SESSION['error_message'] = "Erro: " . $stmt->error;
+    header('Location: Cadastro_Animais.php'); // Redireciona de volta em caso de erro
+    exit(); // Para garantir que o script pare aqui
 }
 
-// Fechar conexão
+// Fechar a declaração e a conexão
+$stmt->close();
 $conn->close();
 ?>
