@@ -1,54 +1,53 @@
 /* Navbar fixa no lado esquerdo e vertical */
 .navbar {
-    position: fixed;
-    top: 0;
-    left: 0;
-    height: 100%;
-    width: 200px;
-    background-color: #333;
-    padding-top: 20px;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    z-index: 1000; /* Garantir que fique acima do conteúdo */
-  }
-  
-  .navbar ul {
-    list-style-type: none;
-    padding: 0;
-  }
-  
-  .navbar ul li {
-    width: 100%;
-  }
-  
-  .navbar ul li a {
-    display: block;
-    color: white;
-    padding: 10px 15px;
-    text-decoration: none;
-    font-size: 18px;
-    text-align: left;
-    border-bottom: 1px solid #444; /* Linha separadora entre os itens */
-  }
-  
-  .navbar ul li a:hover {
-    background-color: #575757;
-  }
-  
-  body {
-    margin-left: 200px; /* Para garantir que o conteúdo da página não fique atrás da navbar */
-    padding: 20px;
-  }
-  .navbar-logo {
-    width: 100%; /* Ajuste a largura da imagem para caber na navbar */
-    height: auto; /* Mantém a proporção da imagem */
-    padding: 10px 0; /* Espaçamento em torno da imagem */
-    object-fit: contain; /* Garante que a imagem se ajuste sem distorcer */
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    top:0;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 200px;
+  background-color: #333;
+  padding-top: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  z-index: 1000; /* Garantir que fique acima do conteúdo */
 }
 
-  
+.navbar ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.navbar ul li {
+  width: 100%;
+}
+
+.navbar ul li a {
+  display: block;
+  color: white;
+  padding: 10px 15px;
+  text-decoration: none;
+  font-size: 18px;
+  text-align: left;
+  border-bottom: 1px solid #444; /* Linha separadora entre os itens */
+}
+
+.navbar ul li a:hover {
+  background-color: #575757;
+}
+
+body {
+  margin: 0; /* Remove o margin padrão do body */
+  padding-left: 220px; /* Para garantir que o conteúdo da página não fique atrás da navbar */
+  padding-top: 20px; /* Adiciona um espaço acima do conteúdo */
+}
+
+.navbar-logo {
+  width: 100%; /* Ajuste a largura da imagem para caber na navbar */
+  height: auto; /* Mantém a proporção da imagem */
+  padding: 10px 0; /* Espaçamento em torno da imagem */
+  object-fit: contain; /* Garante que a imagem se ajuste sem distorcer */
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
