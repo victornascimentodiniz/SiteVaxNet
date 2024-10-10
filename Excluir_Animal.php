@@ -16,14 +16,14 @@ if ($conn->connect_error) {
 
 // Receber o ID do animal a ser excluído
 if (isset($_GET['id'])) {
-    $id = intval($_GET['id']); // Certifique-se de que o ID seja um inteiro
+    $id = $_GET['id']; // ID como string, já que não precisa ser convertido para inteiro
 
     // Preparar a consulta
-    $stmt = $conn->prepare("DELETE FROM cadastros_animais WHERE id = ?");
+    $stmt = $conn->prepare("DELETE FROM cadastros_animais WHERE id_animal = ?");
     if ($stmt) {
         // Vincular o parâmetro
-        $stmt->bind_param("i", $id);
-        
+        $stmt->bind_param("s", $id); // Use "s" para string, se o id_animal for um número, pode ser "i"
+
         // Executar a consulta
         if ($stmt->execute()) {
             if ($stmt->affected_rows > 0) {

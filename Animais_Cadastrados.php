@@ -59,24 +59,49 @@ $result = $conn->query($sql);
     function excluirAnimal() {
         if (animalSelecionado) {
             if (confirm("Tem certeza que deseja excluir este animal?")) {
-                window.location.href = "Excluir_Animal.php?id=" + animalSelecionado.id;
+                window.location.href = "Excluir_Animal.php?id=" + animalSelecionado.id_animal;
             }
         } else {
             alert("Nenhum animal selecionado para exclusão.");
         }
     }
+
+    function filtrarAnimais() {
+        const input = document.getElementById('search-input').value.toLowerCase();
+        const items = document.querySelectorAll('.animal-list li');
+
+        items.forEach(item => {
+            const texto = item.textContent.toLowerCase();
+            item.style.display = texto.includes(input) ? '' : 'none';
+        });
+    }
   </script>
 </head>
 <body>
+  <?php
+  // Exibir mensagem de sucesso ou erro
+  if (isset($_SESSION['success_message'])) {
+      echo "<div class='alert success'>" . $_SESSION['success_message'] . "</div>";
+      unset($_SESSION['success_message']); // Limpar a mensagem após exibi-la
+  }
+
+  if (isset($_SESSION['error_message'])) {
+      echo "<div class='alert error'>" . $_SESSION['error_message'] . "</div>";
+      unset($_SESSION['error_message']); // Limpar a mensagem após exibi-la
+  }
+  ?>
+
   <div class="lista-container" id="lista-container">
     <h2>Lista de Animais Cadastrados</h2>
     
+    <input type="text" id="search-input" onkeyup="filtrarAnimais()" placeholder="Pesquisar animal...">
+
     <?php
     if ($result->num_rows > 0) {
         echo "<ul class='animal-list'>";
 
         while ($row = $result->fetch_assoc()) {
-            echo "<li onclick='mostrarDetalhes(" . json_encode($row) . ")'>";
+            echo "<li id='animal-" . $row['id_animal'] . "' onclick='mostrarDetalhes(" . json_encode($row) . ")'>";
             echo $row["responsavel"] . " - " . $row["nome"];
             echo "</li>";
         }
@@ -108,5 +133,16 @@ $result = $conn->query($sql);
     <button onclick="voltarLista()">Voltar à Lista</button>
     <button onclick="excluirAnimal()">Excluir Animal</button>
   </div>
+
+  <script>
+    // Função para ocultar as mensagens após 3 segundos
+    setTimeout(() => {
+        const alerts = document.querySelectorAll('.alert');
+        alerts.forEach(alert => {
+            alert.style.opacity = 0;
+            setTimeout(() => alert.remove(), 500); // Remove o elemento após a transição
+        });
+    }, 3000);
+  </script>
 </body>
 </html>
