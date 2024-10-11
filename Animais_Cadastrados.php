@@ -66,6 +66,15 @@ $result = $conn->query($sql);
         }
     }
 
+    function editarAnimal() {
+    if (animalSelecionado) {
+        window.location.href = "Editar_Animal.php?id=" + animalSelecionado.id_animal;
+    } else {
+        alert("Nenhum animal selecionado para edição.");
+    }
+    }
+
+
     function filtrarAnimais() {
         const input = document.getElementById('search-input').value.toLowerCase();
         const items = document.querySelectorAll('.animal-list li');
@@ -130,8 +139,9 @@ $result = $conn->query($sql);
     <p><strong>Contato:</strong> <span id="detalhes-contato"></span></p>
     <p><strong>Observações:</strong> <span id="detalhes-observacoes"></span></p>
     
-    <button onclick="voltarLista()">Voltar à Lista</button>
-    <button onclick="excluirAnimal()">Excluir Animal</button>
+    <button onclick="voltarLista()"><i class="fas fa-arrow-left"></i> Voltar à Lista</button>
+    <button onclick="excluirAnimal()"><i class="fas fa-trash"></i> Excluir Animal</button>
+    <button onclick="editarAnimal()"><i class="fas fa-edit"></i> Editar Cadastro</button>
   </div>
 
   <script>

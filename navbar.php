@@ -8,8 +8,7 @@
 </head>
 <body>
   <nav class="navbar">
-    <img src="IMG/3d9578cd-3221-47c1-bbe2-22c4a8e0662a.png" alt="Logo" class="navbar-logo">
-    
+    <img src="IMG/3d9578cd-3221-47c1-bbe2-22c4a8e0662a.png" alt="Logo" class="navbar-logo"> 
     <ul>
       <li><a href="Home.php"><i class="fas fa-home"></i> Home</a></li>
       <li><a href="Cadastro_Animais.php"><i class="fas fa-plus-circle"></i> Cadastro de Vacinas</a></li>

@@ -1,0 +1,59 @@
+/* Editar_Animal.css */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 20px;
+    display: flex;
+    justify-content: center; /* Centraliza horizontalmente */
+    align-items: flex-start; /* Alinha ao topo da tela */
+    height: 100vh; /* Altura total da tela */
+}
+
+.container {
+    width: 100%;
+    max-width: 600px; /* Largura máxima do formulário */
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-top: 80px; /* Ajuste conforme necessário para que tudo fique visível */
+}
+
+h2 {
+    color: #333;
+    text-align: center; /* Centraliza o título */
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+}
+
+input[type="text"],
+input[type="number"],
+input[type="date"],
+textarea,
+select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+button {
+    background-color: #4CAF50; /* Verde */
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    width: 100%; /* Botão ocupa toda a largura do formulário */
+}
+
+button:hover {
+    background-color: #45a049; /* Verde mais escuro */
+}
