@@ -68,3 +68,19 @@ input {
     width: 100px;
     margin-top: 20px; /* Reduzindo o espaço acima da imagem */
   }
+  .create-account-btn {
+    background-color: #ffffff; /* Cor branca */
+    color: #4285f4; /* Azul do Google */
+    border: 1px solid #4285f4;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+  
+  .create-account-btn:hover {
+    background-color: #4285f4;
+    color: #ffffff;
+  }
+  
