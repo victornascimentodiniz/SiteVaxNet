@@ -21,7 +21,7 @@ if (isset($_SESSION['error_message'])) {
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Cadastro de Animais</title>
-  <link rel="stylesheet" href="Cadastro_Animais.css">
+  <link rel="stylesheet" href="cadastro_animais.css">
 </head>
 <body>
   <div class="cadastro-container">
@@ -39,7 +39,7 @@ if (isset($_SESSION['error_message'])) {
       <input type="text" name="responsavel" placeholder="Responsável" required>
       <input type="text" name="contato_responsavel" placeholder="Contato do Responsável" required>
       <input type="text" name="observacoes" placeholder="observacoes" required>
-      <button type="submit">Cadastrar</button>
+      <button type="submit" class="submit-btn">Cadastrar</button>
     </form>
   </div>
 
