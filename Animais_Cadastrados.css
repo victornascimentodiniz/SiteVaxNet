@@ -1,86 +1,123 @@
+/* Estilo geral */
 body {
-    margin: 0; /* Remove o margin padrão do body */
-    padding-left: 220px; /* Para garantir que o conteúdo da página não fique atrás da navbar */
-    padding-top: 20px; /* Adiciona um espaço acima do conteúdo */
-    font-family: Arial, sans-serif; /* Define uma fonte padrão */
-}
-
-.detalhes-container {
-    background: white;
-    border-radius: 8px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    padding: 20px;
-    margin-top: 20px;
-    text-align: center; /* Centraliza o texto */
-}
-
-.detalhes-container h2 {
-    margin-bottom: 20px; /* Espaço abaixo do título */
-}
-
-.detalhes-container p {
-    margin: 10px 0;
-    font-size: 18px; /* Tamanho da fonte das informações */
-}
-
-.lista-container input {
-    width: 100%; /* Largura total */
-    padding: 10px; /* Espaçamento interno */
-    margin-bottom: 20px; /* Espaço abaixo da barra de pesquisa */
-    border: 1px solid #ccc; /* Borda padrão */
-    border-radius: 5px; /* Bordas arredondadas */
-    font-size: 16px; /* Tamanho da fonte */
-}
-
-.animal-list {
-    list-style-type: none;
+    font-family: Arial, sans-serif;
+    margin: 0;
     padding: 0;
+    background-color: #f9f9f9;
+    color: #333;
+}
+
+/* Cabeçalho */
+h2 {
+    text-align: center;
+    color: #4CAF50;
+    margin: 20px 0;
+}
+
+/* Campo de busca */
+#search-input {
+    display: block;
+    margin: 10px auto;
+    padding: 10px;
+    width: 80%;
+    max-width: 400px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+/* Lista de animais */
+.animal-list {
+    list-style: none;
+    padding: 0;
+    margin: 20px auto;
+    max-width: 600px;
 }
 
 .animal-list li {
     padding: 15px;
     margin: 10px 0;
-    background-color: #e7f1ff;
+    background-color: #fff;
+    border: 1px solid #ddd;
     border-radius: 5px;
     cursor: pointer;
-    transition: background-color 0.3s;
+    transition: background-color 0.3s ease;
 }
 
 .animal-list li:hover {
-    background-color: #d0e4ff;
+    background-color: #f0f8ff;
 }
 
+
 button {
-    margin: 10px;
-    padding: 10px 15px;
-    background-color: #007bff;
-    color: white;
+    display: inline-block;
+    padding: 10px 20px;
+    margin: 10px 5px;
+    background-color: #4CAF50;
+    color: #fff;
     border: none;
     border-radius: 5px;
     cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
 }
 
 button:hover {
-    background-color: #0056b3;
+    background-color: #45a049;
 }
+
+button i {
+    margin-right: 5px;
+}
+
+/* Alertas */
 .alert {
-    position: fixed;
-    top: 20px;
-    right: 20px;
-    padding: 15px;
+    padding: 10px;
+    margin: 10px auto;
+    width: 80%;
+    max-width: 400px;
+    text-align: center;
     border-radius: 5px;
-    z-index: 1000;
+    color: #fff;
+    font-weight: bold;
     transition: opacity 0.5s ease;
 }
 
-.success {
-    background-color: #d4edda;
-    color: #155724;
-    border: 1px solid #c3e6cb;
+.alert.success {
+    background-color: #4CAF50;
 }
 
-.error {
-    background-color: #f8d7da;
-    color: #721c24;
-    border: 1px solid #f5c6cb;
+.alert.error {
+    background-color: #f44336;
 }
+/* Efeito de hover na lista de animais */
+.animal-list li:hover {
+    background-color: #e8f5e9; /* Cor de fundo suave */
+    color: #4CAF50; /* Cor do texto verde */
+    border-color: #4CAF50; /* Bordas verdes para combinar */
+    font-weight: bold; /* Realça o texto */
+}
+/* Estilo para o contêiner de detalhes */
+.detalhes-container {
+    padding: 20px;
+    max-width: 600px;
+    margin: 20px auto;
+    background-color: #f0f8ff; /* Cor de fundo azul claro */
+    border: 2px solid #4CAF50; /* Cor da borda verde */
+    border-radius: 10px; /* Bordas arredondadas */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra para destacar o quadrado */
+}
+
+/* Estilo para os títulos */
+.detalhes-container h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #333; /* Cor neutra para o texto */
+}
+
+/* Parágrafos dentro do contêiner de detalhes */
+.detalhes-container p {
+    margin: 10px 0;
+    font-size: 16px;
+    color: #555; /* Cor para melhor contraste */
+}
+
