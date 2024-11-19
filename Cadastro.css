@@ -1,90 +1,103 @@
 /* Estilos gerais */
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f9;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f7f7f7;
     display: flex;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
     margin: 0;
+    color: #333;
 }
 
 /* Container principal */
 .container {
     background-color: #ffffff;
-    padding: 30px;
-    border-radius: 8px;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
     width: 100%;
-    max-width: 500px;
+    max-width: 720px;
+    box-sizing: border-box;
 }
 
 /* Título */
 h2 {
     text-align: center;
     color: #333;
-    margin-bottom: 20px;
-    font-size: 1.8em;
+    margin-bottom: 30px;
+    font-size: 2em;
+    font-weight: 600;
 }
 
 /* Labels e inputs */
 label {
     display: block;
-    margin-bottom: 5px;
-    color: #555;
-    font-weight: bold;
+    margin-bottom: 8px;
+    color: #444;
+    font-weight: 500;
 }
 
+/* Campos de input e select */
 input[type="text"],
 input[type="email"],
 input[type="password"],
 input[type="date"],
 select {
     width: 100%;
-    padding: 10px;
-    margin-bottom: 15px;
+    padding: 14px;
+    margin-bottom: 20px;
     border: 1px solid #ddd;
-    border-radius: 5px;
-    box-sizing: border-box;
+    border-radius: 8px;
     font-size: 1em;
     background-color: #f9f9f9;
+    box-sizing: border-box;
 }
 
-input:focus,
-select:focus {
-    border-color: dodgerblue;
-    outline: none;
-}
-
-/* Botão de cadastro */
+/* Botões */
 button[type="submit"] {
     width: 100%;
-    background-color: dodgerblue;
+    background-color: #007bff;
     color: white;
-    padding: 12px;
+    padding: 14px;
     border: none;
-    border-radius: 5px;
-    font-size: 1em;
+    border-radius: 8px;
+    font-size: 1.2em;
     font-weight: bold;
     cursor: pointer;
     transition: background-color 0.3s ease;
 }
 
 button[type="submit"]:hover {
-    background-color: #1e90ff;
+    background-color: #0056b3;
 }
 
-/* Mensagens de sucesso e erro */
+/* Campos lado a lado */
+.campo-duplo {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.campo {
+    flex: 1;
+}
+
+/* Estilos para mensagens de sucesso/erro */
 .success-message {
-    color: green;
-    font-weight: bold;
+    color: #28a745;
     text-align: center;
-    margin-bottom: 15px;
+    font-weight: bold;
+    margin-bottom: 20px;
 }
 
 .error-message {
-    color: red;
-    font-weight: bold;
+    color: #dc3545;
     text-align: center;
-    margin-bottom: 15px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+#campos_usuario, #campos_veterinario {
+    display: none;
 }
