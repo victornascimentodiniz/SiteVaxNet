@@ -36,15 +36,17 @@ if (isset($_SESSION['error_message'])) {
       <p>Rede de Vacina</p>
       <h2>Bem-vindo de volta!</h2>
       <p>Acesse sua conta agora mesmo.</p>
+      <form method="POST" action="Login_Verificar.php">
       <div class="input-group">
         <i class="fas fa-envelope"></i>
-        <input type="email" placeholder="Email" required>
+        <input type="email" name="email" placeholder="Email" required>
       </div>
       <div class="input-group">
         <i class="fas fa-lock"></i>
-        <input type="password" placeholder="Senha" required>
+        <input type="password" name="senha" placeholder="Senha" required>
       </div>
-      <button class="login-button">ENTRAR</button>
+      <button type="submit" class="login-button">ENTRAR</button>
+    </form>
       <a href="#" class="forgot-password">Esqueceu a senha?</a>
     </div>
 
@@ -62,23 +64,23 @@ if (isset($_SESSION['error_message'])) {
         <p>Preencha seus dados</p>
         <div class="input-group">
           <i class="fas fa-user"></i>
-          <input type="text" name="nome" placeholder="Nome" required>
+          <input type="text" name="nome" placeholder="      Nome" required>
         </div>
         <div class="input-group">
           <i class="fas fa-envelope"></i>
-          <input type="email" name="email" placeholder="Email" required>
+          <input type="email" name="email" placeholder="      Email" required>
         </div>
         <div class="input-group">
           <i class="fas fa-lock"></i>
-          <input type="password" name="senha" placeholder="Senha" required>
+          <input type="password" name="senha" placeholder="      Senha" required>
         </div>
         <div class="input-group">
           <i class="fas fa-phone"></i>
-          <input type="text" name="telefone" placeholder="Telefone" required>
+          <input type="text" name="telefone" placeholder="      Telefone" required>
         </div>
         <div class="input-group">
           <i class="fas fa-map-marker-alt"></i>
-          <input type="text" name="endereco" placeholder="Endereço" required>
+          <input type="text" name="endereco" placeholder="      Endereço" required>
         </div>
         <button type="submit" class="register-button">Cadastrar Usuário</button>
       </form>
@@ -90,31 +92,31 @@ if (isset($_SESSION['error_message'])) {
         <p>Preencha seus dados</p>
         <div class="input-group">
           <i class="fas fa-user-md"></i>
-          <input type="text" name="nome" placeholder="Nome" required>
+          <input type="text" name="nome" placeholder="      Nome" required>
         </div>
         <div class="input-group">
           <i class="fas fa-envelope"></i>
-          <input type="email" name="email" placeholder="Email" required>
+          <input type="email" name="email" placeholder="      Email" required>
         </div>
         <div class="input-group">
           <i class="fas fa-lock"></i>
-          <input type="password" name="senha" placeholder="Senha" required>
+          <input type="password" name="senha" placeholder="      Senha" required>
         </div>
         <div class="input-group">
           <i class="fas fa-phone"></i>
-          <input type="text" name="telefone" placeholder="Telefone" required>
+          <input type="text" name="telefone" placeholder="      Telefone" required>
         </div>
         <div class="input-group">
           <i class="fas fa-map-marker-alt"></i>
-          <input type="text" name="endereco" placeholder="Endereço" required>
+          <input type="text" name="endereco" placeholder="      Endereço" required>
         </div>
         <div class="input-group">
           <i class="fas fa-id-badge"></i>
-          <input type="text" name="crmv" placeholder="CRMV" required>
+          <input type="text" name="crmv" placeholder="      CRMV" required>
         </div>
         <div class="input-group">
           <i class="fas fa-briefcase-medical"></i>
-          <input type="text" name="especializacao" placeholder="Especialização" required>
+          <input type="text" name="especializacao" placeholder="      Especialização" required>
         </div>
         <div class="input-group status-group">
           <label for="status">Status:</label>
