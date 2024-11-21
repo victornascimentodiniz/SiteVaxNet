@@ -15,8 +15,8 @@
   
   .container {
     display: flex;
-    width: 900px;
-    height: 600px;
+    width: 1000px;
+    height: 700px;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
     border-radius: 10px;
     overflow: hidden;
@@ -233,4 +233,113 @@
     text-align: center;
     font-weight: bold;
   }
+  .input-group i {
+    position: absolute;
+    top: 50%;
+    left: 10px;
+    transform: translateY(-50%);
+    color: #888;
+    font-size: 16px;
+  }
+  
+  .register-button:hover,
+  .login-button:hover {
+    background-color: #666;
+  }
+  
+  .tabs {
+    justify-content: space-evenly;
+  }
+  
+  .tab {
+    width: 45%;
+    text-align: center;
+  }
+
+
+
+  /* Grupo de entrada com ícones */
+.input-group {
+  position: relative;
+  margin-bottom: 20px;
+}
+
+.input-group input {
+  width: 100%;
+  padding-left: 40px; /* Espaço à esquerda para o ícone */
+  padding-right: 10px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 14px;
+  box-sizing: border-box;
+}
+
+/* Ícones dentro do campo de entrada */
+.input-group .icon {
+  position: absolute;
+  top: 50%;
+  left: 10px; /* Espaço entre o ícone e a borda esquerda */
+  transform: translateY(-50%);
+  font-size: 18px; /* Tamanho do ícone */
+  color: #888; /* Cor do ícone */
+  pointer-events: none; /* Evita interação com o ícone */
+}
+/* Estilo da mensagem de sucesso */
+.success-message-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 9999;
+  visibility: hidden; /* Inicialmente invisível */
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out, visibility 0s 0.3s;
+}
+
+.success-message {
+  background-color: #28a745;
+  color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 300px;
+}
+
+.success-message i {
+  font-size: 48px;
+  margin-bottom: 10px;
+}
+
+.success-message p {
+  font-size: 18px;
+  margin-bottom: 15px;
+}
+
+.success-message button {
+  background-color: #fff;
+  color: #28a745;
+  border: none;
+  padding: 8px 16px;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background-color 0.3s;
+}
+
+.success-message button:hover {
+  background-color: #d4edda;
+}
+
+  
   
