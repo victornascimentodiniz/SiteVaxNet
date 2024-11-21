@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cadastro</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <div class="left-section">
+      <div class="logo">VAX<span>NET</span></div>
+      <p>Rede de Vacina</p>
+      <h2>Bem-vindo de volta!</h2>
+      <p>Acesse sua conta agora mesmo.</p>
+      <div class="input-group">
+        <input type="email" placeholder="Email" required>
+      </div>
+      <div class="input-group">
+        <input type="password" placeholder="Senha" required>
+      </div>
+      <button class="login-button">ENTRAR</button>
+      <a href="#" class="forgot-password">Esqueceu a senha?</a>
+    </div>
+
+    <div class="right-section">
+      <div class="tabs">
+        <button class="tab active" onclick="showForm('user')">Cadastro Usuário</button>
+        <button class="tab" onclick="showForm('vet')">Cadastro Veterinário</button>
+      </div>
+
+      <!-- Formulário de Cadastro de Usuário -->
+      <form id="user-form" class="form active" method="POST" action="processa_usuario.php">
+        <h2>Cadastro de Usuário</h2>
+        <p>Preencha seus dados</p>
+        <div class="input-group">
+          <input type="text" name="nome" placeholder="Nome" required>
+        </div>
+        <div class="input-group">
+          <input type="email" name="email" placeholder="Email" required>
+        </div>
+        <div class="input-group">
+          <input type="password" name="senha" placeholder="Senha" required>
+        </div>
+        <div class="input-group">
+          <input type="text" name="telefone" placeholder="Telefone" required>
+        </div>
+        <div class="input-group">
+          <input type="text" name="endereco" placeholder="Endereço" required>
+        </div>
+        <button type="submit" class="register-button">Cadastrar Usuário</button>
+      </form>
+
+      <!-- Formulário de Cadastro de Veterinário -->
+      <form id="vet-form" class="form" method="POST" action="processa_veterinario.php">
+        <h2>Cadastro de Veterinário</h2>
+        <p>Preencha seus dados</p>
+        <div class="input-group">
+          <input type="text" name="nome" placeholder="Nome" required>
+        </div>
+        <div class="input-group">
+          <input type="email" name="email" placeholder="Email" required>
+        </div>
+        <div class="input-group">
+          <input type="password" name="senha" placeholder="Senha" required>
+        </div>
+        <div class="input-group">
+          <input type="text" name="telefone" placeholder="Telefone" required>
+        </div>
+        <div class="input-group">
+          <input type="text" name="endereco" placeholder="Endereço" required>
+        </div>
+        <div class="input-group">
+          <input type="text" name="crmv" placeholder="CRMV" required>
+        </div>
+        <div class="input-group">
+          <input type="text" name="especializacao" placeholder="Especialização" required>
+        </div>
+        <div class="input-group status-group">
+            <label for="status">Status:</label>
+            <div class="status-toggle">
+              <input type="radio" id="ativo" name="status" value="ativo" required>
+              <label for="ativo" class="status-label ativo">Ativo</label>
+              <input type="radio" id="inativo" name="status" value="inativo" required>
+              <label for="inativo" class="status-label inativo">Inativo</label>
+            </div>
+          </div>          
+        <button type="submit" class="register-button">Cadastrar Veterinário</button>
+      </form>
+    </div>
+  </div>
+
+  <script>
+    // Função para alternar entre os formulários
+    function showForm(formId) {
+      const forms = document.querySelectorAll('.form');
+      const tabs = document.querySelectorAll('.tab');
+
+      forms.forEach(form => form.classList.remove('active'));
+      tabs.forEach(tab => tab.classList.remove('active'));
+
+      document.getElementById(`${formId}-form`).classList.add('active');
+      document.querySelector(`.tab[onclick="showForm('${formId}')"]`).classList.add('active');
+    }
+  </script>
+</body>
+</html>

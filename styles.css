@@ -1,0 +1,236 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+  }
+  
+  body {
+    background-color: #f4f4f4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  
+  .container {
+    display: flex;
+    width: 900px;
+    height: 600px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    overflow: hidden;
+  }
+  
+  .left-section {
+    background-color: #000;
+    color: #fff;
+    width: 45%;
+    padding: 40px 20px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  
+  .logo {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  
+  .logo span {
+    color: #ccc;
+  }
+  
+  .left-section p {
+    font-size: 14px;
+    margin-bottom: 15px;
+  }
+  
+  .left-section h2 {
+    font-size: 20px;
+    margin-bottom: 10px;
+  }
+  
+  .input-group {
+    margin-bottom: 15px;
+  }
+  
+  .input-group input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 14px;
+  }
+  
+  .login-button {
+    background-color: #fff;
+    color: #000;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 20px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: 0.3s;
+  }
+  
+  .login-button:hover {
+    background-color: #ccc;
+  }
+  
+  .forgot-password {
+    margin-top: 10px;
+    font-size: 12px;
+    color: #ccc;
+    text-decoration: none;
+  }
+  
+  .right-section {
+    background-color: #fff;
+    color: #000;
+    width: 55%;
+    padding: 40px 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .right-section h2 {
+    font-size: 20px;
+    margin-bottom: 10px;
+  }
+  
+  .right-section p {
+    font-size: 14px;
+    margin-bottom: 20px;
+  }
+  
+  .form {
+    width: 100%;
+    max-width: 300px;
+  }
+  
+  .form .input-group {
+    margin-bottom: 15px;
+  }
+  
+  .form .input-group input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 14px;
+  }
+  
+  .register-button {
+    background-color: #000;
+    color: #fff;
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 20px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: 0.3s;
+  }
+  
+  .register-button:hover {
+    background-color: #333;
+  }
+  
+  .tabs {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+  }
+  
+  .tab {
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    background-color: #f4f4f4;
+    border-radius: 5px;
+    margin: 0 5px;
+    transition: background-color 0.3s;
+  }
+  
+  .tab.active {
+    background-color: #000;
+    color: #fff;
+  }
+  
+  .form {
+    display: none;
+  }
+  
+  .form.active {
+    display: block;
+  }
+  
+  /* Estilos para o grupo de Status */
+  .status-group {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    margin-top: 20px;
+  }
+  
+  .status-toggle {
+    display: flex;
+    align-items: center;
+  }
+  
+  .status-label {
+    font-size: 14px;
+    margin-left: 10px;
+    cursor: pointer;
+    padding: 5px 10px;
+    border-radius: 20px;
+    transition: 0.3s;
+  }
+  
+  .status-label.ativo {
+    background-color: #ddd;
+  }
+  
+  .status-label.inativo {
+    background-color: #ddd;
+  }
+  
+  input[type="radio"] {
+    display: none;
+  }
+  
+  input[type="radio"]:checked + .status-label.ativo {
+    background-color: #4CAF50; /* Verde para Ativo */
+    color: white;
+  }
+  
+  input[type="radio"]:checked + .status-label.inativo {
+    background-color: #ccc; /* Cinza para Inativo */
+    color: white;
+  }
+  
+  input[type="radio"]:not(:checked) + .status-label.inativo {
+    background-color: #ddd;
+    color: #000;
+  }
+  
+  input[type="radio"]:not(:checked) + .status-label.ativo {
+    background-color: #ddd;
+    color: #000;
+  }
+  
+  .status-toggle .status-label {
+    display: flex;
+    align-items: center;
+    justify-content: center;    
+    width: 100px;
+    height: 30px;
+    text-align: center;
+    font-weight: bold;
+  }
+  
