@@ -1,0 +1,345 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+  }
+  
+  body {
+    background-color: #f4f4f4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  
+  .container {
+    display: flex;
+    width: 1000px;
+    height: 700px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    overflow: hidden;
+  }
+  
+  .left-section {
+    background-color: #000;
+    color: #fff;
+    width: 45%;
+    padding: 40px 20px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  
+  .logo {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  
+  .logo span {
+    color: #ccc;
+  }
+  
+  .left-section p {
+    font-size: 14px;
+    margin-bottom: 15px;
+  }
+  
+  .left-section h2 {
+    font-size: 20px;
+    margin-bottom: 10px;
+  }
+  
+  .input-group {
+    margin-bottom: 15px;
+  }
+  
+  .input-group input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 14px;
+  }
+  
+  .login-button {
+    background-color: #fff;
+    color: #000;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 20px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: 0.3s;
+  }
+  
+  .login-button:hover {
+    background-color: #ccc;
+  }
+  
+  .forgot-password {
+    margin-top: 10px;
+    font-size: 12px;
+    color: #ccc;
+    text-decoration: none;
+  }
+  
+  .right-section {
+    background-color: #fff;
+    color: #000;
+    width: 55%;
+    padding: 40px 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .right-section h2 {
+    font-size: 20px;
+    margin-bottom: 10px;
+  }
+  
+  .right-section p {
+    font-size: 14px;
+    margin-bottom: 20px;
+  }
+  
+  .form {
+    width: 100%;
+    max-width: 300px;
+  }
+  
+  .form .input-group {
+    margin-bottom: 15px;
+  }
+  
+  .form .input-group input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 14px;
+  }
+  
+  .register-button {
+    background-color: #000;
+    color: #fff;
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 20px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: 0.3s;
+  }
+  
+  .register-button:hover {
+    background-color: #333;
+  }
+  
+  .tabs {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+  }
+  
+  .tab {
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    background-color: #f4f4f4;
+    border-radius: 5px;
+    margin: 0 5px;
+    transition: background-color 0.3s;
+  }
+  
+  .tab.active {
+    background-color: #000;
+    color: #fff;
+  }
+  
+  .form {
+    display: none;
+  }
+  
+  .form.active {
+    display: block;
+  }
+  
+  /* Estilos para o grupo de Status */
+  .status-group {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    margin-top: 20px;
+  }
+  
+  .status-toggle {
+    display: flex;
+    align-items: center;
+  }
+  
+  .status-label {
+    font-size: 14px;
+    margin-left: 10px;
+    cursor: pointer;
+    padding: 5px 10px;
+    border-radius: 20px;
+    transition: 0.3s;
+  }
+  
+  .status-label.ativo {
+    background-color: #ddd;
+  }
+  
+  .status-label.inativo {
+    background-color: #ddd;
+  }
+  
+  input[type="radio"] {
+    display: none;
+  }
+  
+  input[type="radio"]:checked + .status-label.ativo {
+    background-color: #4CAF50; /* Verde para Ativo */
+    color: white;
+  }
+  
+  input[type="radio"]:checked + .status-label.inativo {
+    background-color: #ccc; /* Cinza para Inativo */
+    color: white;
+  }
+  
+  input[type="radio"]:not(:checked) + .status-label.inativo {
+    background-color: #ddd;
+    color: #000;
+  }
+  
+  input[type="radio"]:not(:checked) + .status-label.ativo {
+    background-color: #ddd;
+    color: #000;
+  }
+  
+  .status-toggle .status-label {
+    display: flex;
+    align-items: center;
+    justify-content: center;    
+    width: 100px;
+    height: 30px;
+    text-align: center;
+    font-weight: bold;
+  }
+  .input-group i {
+    position: absolute;
+    top: 50%;
+    left: 10px;
+    transform: translateY(-50%);
+    color: #888;
+    font-size: 16px;
+  }
+  
+  .register-button:hover,
+  .login-button:hover {
+    background-color: #666;
+  }
+  
+  .tabs {
+    justify-content: space-evenly;
+  }
+  
+  .tab {
+    width: 45%;
+    text-align: center;
+  }
+
+
+
+  /* Grupo de entrada com ícones */
+.input-group {
+  position: relative;
+  margin-bottom: 20px;
+}
+
+.input-group input {
+  width: 100%;
+  padding-left: 40px; /* Espaço à esquerda para o ícone */
+  padding-right: 10px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 14px;
+  box-sizing: border-box;
+}
+
+/* Ícones dentro do campo de entrada */
+.input-group .icon {
+  position: absolute;
+  top: 50%;
+  left: 10px; /* Espaço entre o ícone e a borda esquerda */
+  transform: translateY(-50%);
+  font-size: 18px; /* Tamanho do ícone */
+  color: #888; /* Cor do ícone */
+  pointer-events: none; /* Evita interação com o ícone */
+}
+/* Estilo da mensagem de sucesso */
+.success-message-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 9999;
+  visibility: hidden; /* Inicialmente invisível */
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out, visibility 0s 0.3s;
+}
+
+.success-message {
+  background-color: #28a745;
+  color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 300px;
+}
+
+.success-message i {
+  font-size: 48px;
+  margin-bottom: 10px;
+}
+
+.success-message p {
+  font-size: 18px;
+  margin-bottom: 15px;
+}
+
+.success-message button {
+  background-color: #fff;
+  color: #28a745;
+  border: none;
+  padding: 8px 16px;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background-color 0.3s;
+}
+
+.success-message button:hover {
+  background-color: #d4edda;
+}
+
+  
+  
