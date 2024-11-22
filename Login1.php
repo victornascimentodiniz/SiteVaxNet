@@ -64,7 +64,7 @@ if (isset($_SESSION['error_message'])) {
         <p>Preencha seus dados</p>
         <div class="input-group">
           <i class="fas fa-user"></i>
-          <input type="text" name="nome" placeholder="      Nome" required>
+          <input type="text" name="nome" placeholder="     Nome" required>
         </div>
         <div class="input-group">
           <i class="fas fa-envelope"></i>

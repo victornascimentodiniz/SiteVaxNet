@@ -1,54 +1,125 @@
-/* Navbar fixa no lado esquerdo e vertical */
-.navbar {
-  position: fixed; /* Mantém a navbar fixa */
-  top: 0;
-  left: 0;
-  height: 100vh; /* Mantém a altura total da tela */
-  width: 200px;
-  background-color: #333;
-  padding-top: 20px;
-  z-index: 1000; /* Garantir que fique acima do conteúdo */
-  overflow-y: scroll; /* Adiciona a rolagem na navbar */
-  scrollbar-width: none;
-}
-
-.navbar ul {
-  list-style-type: none;
+/* Reset básico */
+* {
+  margin: 0;
   padding: 0;
-  
+  box-sizing: border-box;
 }
 
-.navbar ul li {
+/* Layout Geral */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  display: flex;
+  flex-direction: column; /* Para navbar horizontal e conteúdo principal */
+}
+
+/* Navbar Horizontal */
+.navbar-horizontal {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #007bff;
+  padding: 1rem;
+  color: white;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  position: fixed;
+  top: 0;
   width: 100%;
+  z-index: 100; /* Garante que a navbar horizontal fique acima da navbar vertical */
 }
 
-.navbar ul li a {
-  display: block;
+.navbar-horizontal .logo h1 {
+  margin: 0;
+  font-size: 1.5rem;
+}
+
+.navbar-horizontal .actions .btn {
+  background-color: #fff;
+  color: #007bff;
+  border: none;
+  padding: 0.5rem 1rem;
+  margin-left: 0.5rem;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.3s, color 0.3s; /* Transição suave */
+}
+
+.navbar-horizontal .actions .btn:hover {
+  background-color: #0056b3; /* Cor de fundo mais escura */
+  color: white; /* Cor do texto branca */
+}
+
+.navbar-horizontal .user-info {
+  display: flex;
+  align-items: center;
+}
+
+.navbar-horizontal .user-info .user-photo {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+.navbar-horizontal .user-info .user-name {
+  font-size: 1rem;
+}
+
+/* Navbar Vertical */
+.navbar-vertical {
+  position: absolute; /* Fixa a barra vertical na tela */
+  top: 70px; /* Compensa a altura da navbar horizontal */
+  left: 0;
+  width: 200px;
+  height: calc(100vh - 80px); /* Preenche a altura da tela menos a navbar horizontal */
+  background-color: #000000;
+  padding-top: 20px;
+  color: white;
+  z-index: 50; /* Garante que a navbar vertical fique atrás da navbar horizontal */
+}
+
+/* Navbar Logo */
+.navbar-vertical .navbar-logo {
+  width: 100%;
+  height: auto;
+  margin-bottom: 1rem;
+}
+
+.navbar-vertical ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.navbar-vertical ul li {
+  margin-bottom: 1rem;
+}
+
+.navbar-vertical ul li a {
+  text-decoration: none;
   color: white;
   padding: 10px 15px;
-  text-decoration: none;
-  font-size: 18px;
-  text-align: left;
-  border-bottom: 1px solid #444; /* Linha separadora entre os itens */
-}
-
-.navbar ul li a:hover {
-  background-color: #575757;
-}
-
-body {
-  margin: 0; /* Remove o margin padrão do body */
-  padding-left: 220px; /* Para garantir que o conteúdo da página não fique atrás da navbar */
-  padding-top: 20px; /* Adiciona um espaço acima do conteúdo */
-}
-
-.navbar-logo {
-  width: 100%; /* Ajuste a largura da imagem para caber na navbar */
-  height: auto; /* Mantém a proporção da imagem */
-  padding: 10px 0; /* Espaçamento em torno da imagem */
-  object-fit: contain; /* Garante que a imagem se ajuste sem distorcer */
   display: block;
-  margin-left: auto;
-  margin-right: auto;
+  transition: background-color 0.3s ease, color 0.3s ease; /* Transição suave de cor de fundo e texto */
 }
 
+.navbar-vertical ul li a:hover {
+  background-color: #575757; /* Cor de fundo mais escura no hover */
+  color: #fff; /* Garantir que a cor do texto fique branca */
+}
+
+.navbar-vertical ul li a:active {
+  transform: scale(0.98); /* Efeito visual de clique */
+}
+
+/* Conteúdo Principal */
+.main-content {
+  margin-left: 200px; /* Espaço para a navbar vertical */
+  margin-top: 80px; /* Espaço para a navbar horizontal */
+  padding: 2rem;
+  background-color: #f1f1f1;
+  min-height: calc(100vh - 80px); /* Altura mínima sem sobrepor navbar */
+  overflow-y: auto; /* Permite rolar apenas no conteúdo */
+  position: relative; /* Mantém a rolagem no conteúdo principal */
+}
