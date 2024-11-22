@@ -2,10 +2,13 @@
 body {
   font-family: Arial, sans-serif;
   background-color: #f0f0f0;
+  margin: 0;
+  padding-bottom: 80px; /* Espaço para o rodapé fixo */
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  min-height: 100vh;
+  box-sizing: border-box;
 }
 
 .home-container {
@@ -130,3 +133,104 @@ button {
 button:hover {
   background-color: #0056b3;
 }
+
+/* Ajuste geral do body e layout principal */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  min-height: 100vh; /* Altura mínima de 100% da tela */
+  flex-direction: column;
+}
+
+/* Contêiner principal da página */
+.page-content {
+  flex: 1; /* Garante que o conteúdo principal ocupe todo o espaço disponível */
+  display: flex;
+  margin-left: 200px; /* Ajuste para acomodar a largura da navbar */
+  padding: 20px; /* Espaço interno para o conteúdo */
+  background-color: #f0f0f0;
+}
+
+/* Navbar lateral */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 200px;
+  height: 100%;
+  background-color: #111;
+  color: white;
+  z-index: 10; /* Garantir que fique acima do conteúdo */
+  padding: 20px 0;
+}
+
+.navbar a {
+  display: block;
+  color: white;
+  text-decoration: none;
+  padding: 10px 15px;
+  margin: 5px 0;
+}
+
+.navbar a:hover {
+  background-color: #333;
+}
+
+/* Estilo do Rodapé */
+.site-footer {
+  background-color: #111; /* Fundo escuro */
+  color: #ccc; /* Texto claro */
+  text-align: center;
+  padding: 20px;
+  width: 100%; /* Ocupe toda a largura da tela */
+  font-size: 14px;
+  font-family: Arial, sans-serif;
+  margin-top: 500px; /* Espaço acima do rodapé */
+}
+
+.site-footer .social-icons {
+  margin-bottom: 15px;
+}
+
+.site-footer .social-icons a {
+  color: #fff;
+  text-decoration: none;
+  margin: 0 10px;
+  font-size: 18px;
+}
+
+.site-footer .social-icons a:hover {
+  color: #00bcd4; /* Cor de destaque ao passar o mouse */
+}
+
+.site-footer .footer-links,
+.site-footer .footer-policies {
+  margin-bottom: 10px;
+}
+
+.site-footer .footer-links a,
+.site-footer .footer-policies a {
+  color: #ccc;
+  text-decoration: none;
+  margin: 0 5px;
+}
+
+.site-footer .footer-links a:hover,
+.site-footer .footer-policies a:hover {
+  color: #fff; /* Cor de destaque ao passar o mouse */
+}
+
+.site-footer span {
+  margin: 0 5px;
+  color: #666; /* Separadores */
+}
+
+.site-footer p {
+  margin: 10px 0 0;
+  font-size: 12px;
+  color: #666;
+}
+
+

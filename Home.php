@@ -1,5 +1,4 @@
 <?php include('navbar.php'); ?>
-
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -7,32 +6,31 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Home</title>
   <link rel="stylesheet" href="Home.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
+  <!-- Container Principal da Página -->
   <div class="home-container">
-    <h2>Bem-vindo, <span id="user-name">Usuário</span></h2>
-    <!-- Substituir 'Usuário' por uma variável PHP que exiba o nome do usuário logado -->
-    
+    <h2>Bem-vindo, <span id="user-name">
+      <?php echo strtoupper($_SESSION['name'] ?? 'Usuário'); ?>
+    </span></h2>
     <!-- Painel de Estatísticas -->
     <div class="stats-panel">
       <div class="stat-card">
-        <h3>120</h3> <!-- Pegar dado do banco de quantos animais o usuario tem-->
+        <h3>120</h3>
         <p>Animais</p>
       </div>
       <div class="stat-card">
-        <h3>15</h3> <!-- Pegar dado do banco de quantas vacinas ele faz uso no seus animais-->
+        <h3>15</h3>
         <p>Vacinas</p>
       </div>
-<!--Não sei que informação colocar nesse card, fica a seu criterio. Se tirar ele bagunca a tela home-->
       <div class="stat-card">
-        <h3>5</h3> <!-- Pegar dado do banco -->
+        <h3>5</h3>
         <p>Itens Atrasados</p>
       </div>
     </div>
 
     <!-- Lista de Animais -->
-    <!--Essa lista pode ser reduzida a uma função, com uma conexão com banco para deixar mais dinamico,
-    trazendo os dados do animal e qual vacina ele tomou-->
     <div class="animal-list">
       <h3>Lista de Animais</h3>
       <table>
@@ -88,8 +86,12 @@
       </table>
     </div>
   </div>
+  
 
-<!--Essa parte do codigo faz com as vacinas aplicadas nos animais so aparecam ao clicar no botao "ver mais"-->
+  <!-- Rodapé -->
+  <?php include('footer.php'); ?>
+
+  <!-- Script para detalhes das vacinas -->
   <script>
     function toggleDetails(id) {
       const detailsRow = document.getElementById(id);

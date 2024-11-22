@@ -18,7 +18,7 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: #007bff;
+  background-color: #1D2328;
   padding: 1rem;
   color: white;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
@@ -35,7 +35,7 @@ body {
 
 .navbar-horizontal .actions .btn {
   background-color: #fff;
-  color: #007bff;
+  color: #2171B1;
   border: none;
   padding: 0.5rem 1rem;
   margin-left: 0.5rem;
@@ -73,13 +73,12 @@ body {
   left: 0;
   width: 200px;
   height: calc(100vh - 80px); /* Preenche a altura da tela menos a navbar horizontal */
-  background-color: #000000;
+  background-color: #1D2328;
   padding-top: 20px;
   color: white;
   z-index: 50; /* Garante que a navbar vertical fique atrás da navbar horizontal */
 }
 
-/* Navbar Logo */
 .navbar-vertical .navbar-logo {
   width: 100%;
   height: auto;
@@ -101,12 +100,14 @@ body {
   color: white;
   padding: 10px 15px;
   display: block;
-  transition: background-color 0.3s ease, color 0.3s ease; /* Transição suave de cor de fundo e texto */
+  background-color: #1D2328; /* Cor de fundo padrão */
+  border-radius: 5px; /* Adiciona bordas arredondadas como na horizontal */
+  transition: background-color 0.3s ease, color 0.3s ease; /* Transição suave */
 }
 
 .navbar-vertical ul li a:hover {
-  background-color: #575757; /* Cor de fundo mais escura no hover */
-  color: #fff; /* Garantir que a cor do texto fique branca */
+  background-color: #0056b3; /* Cor de fundo igual ao hover da navbar horizontal */
+  color: white; /* Garante que a cor do texto fique branca */
 }
 
 .navbar-vertical ul li a:active {
@@ -122,4 +123,14 @@ body {
   min-height: calc(100vh - 80px); /* Altura mínima sem sobrepor navbar */
   overflow-y: auto; /* Permite rolar apenas no conteúdo */
   position: relative; /* Mantém a rolagem no conteúdo principal */
+}
+.navbar-vertical ul li a.active {
+  background-color: #0056b3; /* Azul para o link ativo */
+  color: white; /* Texto branco */
+  font-weight: bold; /* Destaca o texto */
+  border-left: 5px solid #2171B1; /* Uma borda para destacar ainda mais */
+  border-radius: 5px; /* Mantém bordas arredondadas */
+}
+.user-name {
+  text-transform: uppercase;
 }
