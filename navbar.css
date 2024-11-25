@@ -25,7 +25,7 @@ body {
   position: fixed;
   top: 0;
   width: 100%;
-  z-index: 100; /* Garante que a navbar horizontal fique acima da navbar vertical */
+  z-index: 100;
 }
 
 .navbar-horizontal .logo h1 {
@@ -42,12 +42,12 @@ body {
   border-radius: 5px;
   cursor: pointer;
   font-weight: bold;
-  transition: background-color 0.3s, color 0.3s; /* Transição suave */
+  transition: background-color 0.3s, color 0.3s;
 }
 
 .navbar-horizontal .actions .btn:hover {
-  background-color: #0056b3; /* Cor de fundo mais escura */
-  color: white; /* Cor do texto branca */
+  background-color: #0056b3;
+  color: white;
 }
 
 .navbar-horizontal .user-info {
@@ -55,28 +55,79 @@ body {
   align-items: center;
 }
 
-.navbar-horizontal .user-info .user-photo {
+.navbar-horizontal .user-photo {
+  border-radius: 50%;
   width: 40px;
   height: 40px;
-  border-radius: 50%;
-  margin-right: 10px;
+  object-fit: cover;
+  margin-right: 0.5rem;
 }
 
-.navbar-horizontal .user-info .user-name {
+/* Dropdown */
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown .dropdown-toggle {
+  background-color: transparent;
+  border: none;
+  color: white;
   font-size: 1rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+.dropdown .dropdown-menu {
+  display: none; /* Ocultar menu inicialmente */
+  position: absolute;
+  top: 100%; /* Alinhar logo abaixo do botão */
+  right: 0;
+  background-color: #1D2328;
+  color: white;
+  min-width: 150px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  z-index: 10;
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.dropdown .dropdown-menu a {
+  text-decoration: none;
+  display: block;
+  padding: 10px 15px;
+  color: white;
+  transition: background-color 0.3s ease;
+}
+
+.dropdown .dropdown-menu a:hover {
+  background-color: #0056b3;
+}
+
+.dropdown .dropdown-menu a:active {
+  transform: scale(0.98);
+}
+
+/* Mostrar menu ao clicar */
+.dropdown.active .dropdown-menu {
+  display: block;
 }
 
 /* Navbar Vertical */
 .navbar-vertical {
-  position: absolute; /* Fixa a barra vertical na tela */
-  top: 70px; /* Compensa a altura da navbar horizontal */
+  position: absolute;
+  top: 70px;
   left: 0;
   width: 200px;
-  height: calc(100vh - 80px); /* Preenche a altura da tela menos a navbar horizontal */
+  height: calc(100vh - 80px);
   background-color: #1D2328;
   padding-top: 20px;
   color: white;
-  z-index: 50; /* Garante que a navbar vertical fique atrás da navbar horizontal */
+  z-index: 50;
 }
 
 .navbar-vertical .navbar-logo {
@@ -100,37 +151,34 @@ body {
   color: white;
   padding: 10px 15px;
   display: block;
-  background-color: #1D2328; /* Cor de fundo padrão */
-  border-radius: 5px; /* Adiciona bordas arredondadas como na horizontal */
-  transition: background-color 0.3s ease, color 0.3s ease; /* Transição suave */
+  border-radius: 5px;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .navbar-vertical ul li a:hover {
-  background-color: #0056b3; /* Cor de fundo igual ao hover da navbar horizontal */
-  color: white; /* Garante que a cor do texto fique branca */
+  background-color: #0056b3;
+  color: white;
 }
 
 .navbar-vertical ul li a:active {
-  transform: scale(0.98); /* Efeito visual de clique */
+  transform: scale(0.98);
+}
+
+.navbar-vertical ul li a.active {
+  background-color: #0056b3;
+  color: white;
+  font-weight: bold;
+  border-left: 5px solid #2171B1;
+  border-radius: 5px;
 }
 
 /* Conteúdo Principal */
 .main-content {
-  margin-left: 200px; /* Espaço para a navbar vertical */
-  margin-top: 80px; /* Espaço para a navbar horizontal */
+  margin-left: 200px;
+  margin-top: 80px;
   padding: 2rem;
   background-color: #f1f1f1;
-  min-height: calc(100vh - 80px); /* Altura mínima sem sobrepor navbar */
-  overflow-y: auto; /* Permite rolar apenas no conteúdo */
-  position: relative; /* Mantém a rolagem no conteúdo principal */
-}
-.navbar-vertical ul li a.active {
-  background-color: #0056b3; /* Azul para o link ativo */
-  color: white; /* Texto branco */
-  font-weight: bold; /* Destaca o texto */
-  border-left: 5px solid #2171B1; /* Uma borda para destacar ainda mais */
-  border-radius: 5px; /* Mantém bordas arredondadas */
-}
-.user-name {
-  text-transform: uppercase;
+  min-height: calc(100vh - 80px);
+  overflow-y: auto;
+  position: relative;
 }

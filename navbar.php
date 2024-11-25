@@ -71,9 +71,21 @@ $current_page = basename($_SERVER['PHP_SELF']);
       <button class="btn">Suporte</button>
     </div>
     <div class="user-info">
-      <img src="IMG/3d9578cd-3221-47c1-bbe2-22c4a8e0.png" alt="Foto do Usuário" class="user-photo">
-      <span class="user-name"><?= htmlspecialchars($name) ?></span>
+  <img src="IMG/3d9578cd-3221-47c1-bbe2-22c4a8e0.png" alt="Foto do Usuário" class="user-photo">
+  <div class="dropdown" id="userDropdown">
+    <button class="dropdown-toggle" onclick="toggleDropdown()">
+      <?= htmlspecialchars($name) ?>
+      <i class="fas fa-chevron-down"></i>
+    </button>
+    <div class="dropdown-menu">
+      <a href="Configuracoes.php">Configurações</a>
+      <a href="#" onclick="confirmLogout()">Sair</a>
     </div>
+  </div>
+</div>
+
+</div>
+
   </div>
 
   <!-- Navbar Vertical -->
@@ -85,11 +97,36 @@ $current_page = basename($_SERVER['PHP_SELF']);
       <li><a href="Cadastro_Vacina.php" class="<?= $current_page == 'Cadastro_Vacina.php' ? 'active' : '' ?>"><i class="fas fa-syringe"></i> Vacinas</a></li>
       <li><a href="Animais_Cadastrados.php" class="<?= $current_page == 'Animais_Cadastrados.php' ? 'active' : '' ?>"><i class="fas fa-paw"></i> Animais</a></li>
       <li><a href="Veterinario.php" class="<?= $current_page == 'Veterinario.php' ? 'active' : '' ?>"><i class="fa-solid fa-user-doctor"></i> Veterinário</a></li>
-      <li><a href="Mensagens.php" class="<?= $current_page == 'Mensagens.php' ? 'active' : '' ?>"><i class="fas fa-comments"></i> Mensagens Automáticas</a></li>
+      <li><a href="Mensagem_Automatica.php" class="<?= $current_page == 'Mensagem_Automatica.php' ? 'active' : '' ?>"><i class="fas fa-comments"></i> Mensagens Automáticas</a></li>
       <li><a href="Monitoramento.php" class="<?= $current_page == 'Monitoramento.php' ? 'active' : '' ?>"><i class="fas fa-chart-line"></i> Monitoramento</a></li>
       <li><a href="Sobre.php" class="<?= $current_page == 'Sobre.php' ? 'active' : '' ?>"><i class="fas fa-info-circle"></i> Sobre</a></li>
       <li><a href="Contato.php" class="<?= $current_page == 'Contato.php' ? 'active' : '' ?>"><i class="fas fa-envelope"></i> Contato</a></li>
     </ul>
   </nav>
+  <script>
+  // Alterna o menu dropdown
+  function toggleDropdown() {
+    const dropdown = document.getElementById('userDropdown');
+    dropdown.classList.toggle('active');
+  }
+
+  // Fecha o menu dropdown se clicar fora dele
+  document.addEventListener('click', function (event) {
+    const dropdown = document.getElementById('userDropdown');
+    if (!dropdown.contains(event.target)) {
+      dropdown.classList.remove('active');
+    }
+  });
+
+  // Confirmação ao clicar em "Sair"
+  function confirmLogout() {
+    const confirmed = confirm("Tem certeza que deseja sair?");
+    if (confirmed) {
+      window.location.href = "Logout.php"; // Substitua com o caminho correto
+    }
+  }
+</script>
+
+
 </body>
 </html>

@@ -4,7 +4,7 @@ session_start(); // Inicia a sessão para mensagens de sucesso ou erro
 // Configuração de conexão com o banco de dados
 $servername = "localhost";
 $username = "root";
-$password = "root";
+$password = "";
 $dbname = "VaxNet";
 
 // Criar conexão
@@ -34,7 +34,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if ($result->num_rows > 0) {
         // Se o email já estiver no banco de dados
         $_SESSION['error_message'] = "Erro: O email já está cadastrado!";
-        header("Location: index.php"); // Redireciona de volta ao formulário
+        header("Location: Login1.php"); // Redireciona de volta ao formulário
         exit();
     }
 

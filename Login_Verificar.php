@@ -31,7 +31,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         // Usuário encontrado
         $_SESSION['user'] = $email;  // Salva o email na sessão
         $_SESSION['role'] = 'usuario'; // Define o tipo de conta
-        header("Location: Home.php"); // Redireciona para a página home
+        header("Location: Home_Usuario.php"); // Redireciona para a página home
         exit();
     }
 

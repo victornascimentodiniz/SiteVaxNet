@@ -5,7 +5,7 @@ include('navbar.php'); // Inclui a navbar
 // Conexão ao banco de dados
 $servername = "localhost";
 $username = "root";
-$password = "root";
+$password = "";
 $dbname = "VaxNet";
 
 $conn = new mysqli($servername, $username, $password, $dbname);
@@ -150,5 +150,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
         <button type="submit">Cadastrar Vacina</button>
     </form>
+<?php include('footer.php');?>
 </body>
 </html>
