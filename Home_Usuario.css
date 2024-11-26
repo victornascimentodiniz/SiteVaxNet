@@ -150,4 +150,41 @@ body {
     font-size: 12px;
     color: #666;
   }
-  
+  .messages-section {
+    margin-top: 20px;
+    padding: 10px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+}
+
+.messages-section h2 {
+    font-size: 1.5em;
+    color: #333;
+}
+
+.messages-section ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.messages-section li {
+    margin-bottom: 20px;
+    padding: 10px;
+    background-color: #fff;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+}
+
+.messages-section li strong {
+    font-size: 1.2em;
+    color: #007bff;
+}
+
+.messages-section li em {
+    font-size: 0.9em;
+    color: #888;
+}
+
+.messages-section li p {
+    margin-top: 10px;
+}
