@@ -20,33 +20,34 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $email = $_POST['email'];
     $senha = $_POST['senha'];
 
-    // Verificar se o email e senha pertencem a um usuário
-    $sql_usuario = "SELECT * FROM cadastro_usuario WHERE email = ? AND senha = ?";
-    $stmt_usuario = $conn->prepare($sql_usuario);
-    $stmt_usuario->bind_param("ss", $email, $senha);
-    $stmt_usuario->execute();
-    $result_usuario = $stmt_usuario->get_result();
+    // Função genérica para autenticação
+    function autenticarUsuario($conn, $email, $senha, $tabela, $redirect, $role) {
+        $sql = "SELECT * FROM $tabela WHERE email = ?";
+        $stmt = $conn->prepare($sql);
+        $stmt->bind_param("s", $email);
+        $stmt->execute();
+        $result = $stmt->get_result();
 
-    if ($result_usuario->num_rows > 0) {
-        // Usuário encontrado
-        $_SESSION['user'] = $email;  // Salva o email na sessão
-        $_SESSION['role'] = 'usuario'; // Define o tipo de conta
-        header("Location: Home_Usuario.php"); // Redireciona para a página home
+        if ($result->num_rows > 0) {
+            $dados = $result->fetch_assoc();
+            // Verificar a senha criptografada
+            if (password_verify($senha, $dados['senha'])) {
+                $_SESSION['user'] = $email;  // Salva o email na sessão
+                $_SESSION['role'] = $role;  // Define o tipo de conta
+                header("Location: $redirect"); // Redireciona para a página home
+                exit();
+            }
+        }
+        return false; // Retorna falso se não autenticar
+    }
+
+    // Tentar autenticar como usuário
+    if (autenticarUsuario($conn, $email, $senha, "cadastro_usuario", "Home_Usuario.php", "usuario")) {
         exit();
     }
 
-    // Verificar se o email e senha pertencem a um veterinário
-    $sql_vet = "SELECT * FROM cadastro_veterinario WHERE email = ? AND senha = ?";
-    $stmt_vet = $conn->prepare($sql_vet);
-    $stmt_vet->bind_param("ss", $email, $senha);
-    $stmt_vet->execute();
-    $result_vet = $stmt_vet->get_result();
-
-    if ($result_vet->num_rows > 0) {
-        // Veterinário encontrado
-        $_SESSION['user'] = $email;  // Salva o email na sessão
-        $_SESSION['role'] = 'veterinario'; // Define o tipo de conta
-        header("Location: Home.php"); // Redireciona para a página home
+    // Tentar autenticar como veterinário
+    if (autenticarUsuario($conn, $email, $senha, "cadastro_veterinario", "Home.php", "veterinario")) {
         exit();
     }
 

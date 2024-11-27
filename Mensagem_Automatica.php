@@ -39,6 +39,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     } elseif (isset($_POST['acao']) && $_POST['acao'] === 'criar_automatica') {
         $mensagem_pre_pronta_id = $_POST['mensagem_pre_pronta'];
         $data_envio = $_POST['data_envio'];
+        $destinatario_email = $_POST['usuario'];
 
         // Obter o conteúdo da mensagem pré-pronta
         $sql_pre_pronta = "SELECT conteudo FROM mensagens_pre_prontas WHERE id = ?";
@@ -50,9 +51,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $stmt->close();
 
         // Inserir a mensagem agendada no banco de dados
-        $sql = "INSERT INTO mensagem (conteudo, data_envio_programado, status) VALUES (?, ?, 0)";
+        $sql = "INSERT INTO mensagem (conteudo, data_envio_programado, status, destinatario_email) VALUES (?, ?, 0, ?)";
         $stmt = $conn->prepare($sql);
-        $stmt->bind_param("ss", $conteudo, $data_envio);
+        $stmt->bind_param("sss", $conteudo, $data_envio, $destinatario_email);
         $stmt->execute();
         $stmt->close();
         $mensagem = "Mensagem automática agendada com sucesso!";
@@ -64,7 +65,7 @@ $sql_pre_prontas = "SELECT id, titulo FROM mensagens_pre_prontas";
 $result_pre_prontas = $conn->query($sql_pre_prontas);
 
 // Buscar usuários cadastrados
-$sql_usuarios = "SELECT id_usuario AS id, nome FROM cadastro_usuario";
+$sql_usuarios = "SELECT id_usuario AS id, nome, email FROM cadastro_usuario";
 $result_usuarios = $conn->query($sql_usuarios);
 
 if (!$result_usuarios) {
@@ -121,7 +122,7 @@ $result_automaticas = $conn->query($sql_automaticas);
             <select id="usuario" name="usuario" required>
                 <option value="">Selecione</option>
                 <?php while ($usuario = $result_usuarios->fetch_assoc()): ?>
-                    <option value="<?= $usuario['id'] ?>"><?= htmlspecialchars($usuario['nome']) ?></option>
+                    <option value="<?= $usuario['email'] ?>"><?= htmlspecialchars($usuario['nome']) ?></option>
                 <?php endwhile; ?>
             </select>
 
