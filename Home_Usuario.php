@@ -48,9 +48,12 @@ if (!empty($sql)) {
     $stmt->close();
 }
 
-// Buscar mensagens do usuário
+// Buscar mensagens destinadas ao usuário logado
 $messages = [];
-$sql_messages = "SELECT titulo, mensagem, data_envio FROM mensagens WHERE id_usuario = (SELECT id FROM cadastro_usuario WHERE email = ?) ORDER BY data_envio DESC";
+$sql_messages = "SELECT remetente_email, mensagem, data_envio 
+                 FROM mensagens 
+                 WHERE destinatario_email = ? 
+                 ORDER BY data_envio DESC";
 $stmt_messages = $conn->prepare($sql_messages);
 $stmt_messages->bind_param("s", $email);
 $stmt_messages->execute();
@@ -105,7 +108,7 @@ $conn->close();
           <ul>
             <?php foreach ($messages as $message): ?>
               <li>
-                <strong><?php echo htmlspecialchars($message['titulo']); ?></strong><br>
+                <strong>De: <?php echo htmlspecialchars($message['remetente_email']); ?></strong><br>
                 <em>Recebido em: <?php echo date("d/m/Y H:i:s", strtotime($message['data_envio'])); ?></em>
                 <p><?php echo nl2br(htmlspecialchars($message['mensagem'])); ?></p>
               </li>
