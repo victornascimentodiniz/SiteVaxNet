@@ -56,7 +56,7 @@ $current_page = basename($_SERVER['PHP_SELF']);
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="navbar_usuario.css">
+  <link rel="stylesheet" href="navbar.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <title>Navbar</title>
 </head>
@@ -87,14 +87,11 @@ $current_page = basename($_SERVER['PHP_SELF']);
 
   <!-- Navbar Vertical -->
   <nav class="navbar-vertical">
-    <img src="IMG/3d9578cd-3221-47c1-bbe2-22c4a8e0662a.png" alt="Logo" class="navbar-logo">
+    <img src="IMG/images.png" alt="Logo" class="navbar-logo">
     <ul>
-      <li><a href="Home.php" class="<?= $current_page == 'Home.php' ? 'active' : '' ?>"><i class="fas fa-home"></i> Home</a></li>
-      <li><a href="Cadastro_Animais.php" class="<?= $current_page == 'Cadastro_Animais.php' ? 'active' : '' ?>"><i class="fas fa-plus-circle"></i> Cadastro de Animais</a></li>
-      <li><a href="Cadastro_Vacina.php" class="<?= $current_page == 'Cadastro_Vacina.php' ? 'active' : '' ?>"><i class="fas fa-syringe"></i> Vacinas</a></li>
-      <li><a href="Animais_Cadastrados.php" class="<?= $current_page == 'Animais_Cadastrados.php' ? 'active' : '' ?>"><i class="fas fa-paw"></i> Animais</a></li>
+      <li><a href="Home_Usuario.php" class="<?= $current_page == 'Home_Usuario.php' ? 'active' : '' ?>"><i class="fas fa-home"></i> Home</a></li>
+      <li><a href="Cadastro_Animais_Usuario.php" class="<?= $current_page == 'Cadastro_Animais_Usuario.php' ? 'active' : '' ?>"><i class="fas fa-plus-circle"></i> Cadastro de Animais</a></li>
       <li><a href="Veterinario.php" class="<?= $current_page == 'Veterinario.php' ? 'active' : '' ?>"><i class="fa-solid fa-user-doctor"></i> Veterinário</a></li>
-      <li><a href="Mensagem_Automatica.php" class="<?= $current_page == 'Mensagem_Automatica.php' ? 'active' : '' ?>"><i class="fas fa-comments"></i> Mensagens Automáticas</a></li>
       <li><a href="Monitoramento.php" class="<?= $current_page == 'Monitoramento.php' ? 'active' : '' ?>"><i class="fas fa-chart-line"></i> Monitoramento</a></li>
       <li><a href="Sobre.php" class="<?= $current_page == 'Sobre.php' ? 'active' : '' ?>"><i class="fas fa-info-circle"></i> Sobre</a></li>
       <li><a href="Contato.php" class="<?= $current_page == 'Contato.php' ? 'active' : '' ?>"><i class="fas fa-envelope"></i> Contato</a></li>

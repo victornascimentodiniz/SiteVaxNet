@@ -79,7 +79,7 @@ $stmt_avisos->close();
 $conn->close();
 ?>
 
-<?php include('navbar.php'); ?>
+<?php include('navbar_usuario.php'); ?>
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
