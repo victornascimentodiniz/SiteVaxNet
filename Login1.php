@@ -37,16 +37,16 @@ if (isset($_SESSION['error_message'])) {
       <h2>Bem-vindo de volta!</h2>
       <p>Acesse sua conta agora mesmo.</p>
       <form method="POST" action="Login_Verificar.php">
-      <div class="input-group">
-        <i class="fas fa-envelope"></i>
-        <input type="email" name="email" placeholder="Email" required>
-      </div>
-      <div class="input-group">
-        <i class="fas fa-lock"></i>
-        <input type="password" name="senha" placeholder="Senha" required>
-      </div>
-      <button type="submit" class="login-button">ENTRAR</button>
-    </form>
+        <div class="input-group">
+          <i class="fas fa-envelope"></i>
+          <input type="email" name="email" placeholder="Email" required>
+        </div>
+        <div class="input-group">
+          <i class="fas fa-lock"></i>
+          <input type="password" name="senha" placeholder="Senha" required>
+        </div>
+        <button type="submit" class="login-button">ENTRAR</button>
+      </form>
       <a href="#" class="forgot-password">Esqueceu a senha?</a>
     </div>
 
@@ -59,64 +59,64 @@ if (isset($_SESSION['error_message'])) {
 
       <!-- Formulário de Cadastro de Usuário -->
       <form id="user-form" class="form active" method="POST" action="Cadastro_Usuario_Veterinario.php">
-        <input type="hidden" name="tipo" value="usuario"> <!-- Campo oculto para o tipo de cadastro -->
+        <input type="hidden" name="tipo" value="usuario">
         <h2>Cadastro de Usuário</h2>
         <p>Preencha seus dados</p>
         <div class="input-group">
           <i class="fas fa-user"></i>
-          <input type="text" name="nome" placeholder="     Nome" required>
+          <input type="text" name="nome" placeholder="Nome" required>
         </div>
         <div class="input-group">
           <i class="fas fa-envelope"></i>
-          <input type="email" name="email" placeholder="      Email" required>
+          <input type="email" name="email" placeholder="Email" required>
         </div>
         <div class="input-group">
           <i class="fas fa-lock"></i>
-          <input type="password" name="senha" placeholder="      Senha" required>
+          <input type="password" name="senha" placeholder="Senha" required>
         </div>
         <div class="input-group">
           <i class="fas fa-phone"></i>
-          <input type="text" name="telefone" placeholder="      Telefone" required>
+          <input type="text" name="telefone" placeholder="Telefone" required>
         </div>
         <div class="input-group">
           <i class="fas fa-map-marker-alt"></i>
-          <input type="text" name="endereco" placeholder="      Endereço" required>
+          <input type="text" name="endereco" placeholder="Endereço" required>
         </div>
         <button type="submit" class="register-button">Cadastrar Usuário</button>
       </form>
 
       <!-- Formulário de Cadastro de Veterinário -->
       <form id="vet-form" class="form" method="POST" action="Cadastro_Usuario_Veterinario.php">
-        <input type="hidden" name="tipo" value="veterinario"> <!-- Campo oculto para o tipo de cadastro -->
+        <input type="hidden" name="tipo" value="veterinario">
         <h2>Cadastro de Veterinário</h2>
         <p>Preencha seus dados</p>
         <div class="input-group">
           <i class="fas fa-user-md"></i>
-          <input type="text" name="nome" placeholder="      Nome" required>
+          <input type="text" name="nome" placeholder="Nome" required>
         </div>
         <div class="input-group">
           <i class="fas fa-envelope"></i>
-          <input type="email" name="email" placeholder="      Email" required>
+          <input type="email" name="email" placeholder="Email" required>
         </div>
         <div class="input-group">
           <i class="fas fa-lock"></i>
-          <input type="password" name="senha" placeholder="      Senha" required>
+          <input type="password" name="senha" placeholder="Senha" required>
         </div>
         <div class="input-group">
           <i class="fas fa-phone"></i>
-          <input type="text" name="telefone" placeholder="      Telefone" required>
+          <input type="text" name="telefone" placeholder="Telefone" required>
         </div>
         <div class="input-group">
           <i class="fas fa-map-marker-alt"></i>
-          <input type="text" name="endereco" placeholder="      Endereço" required>
+          <input type="text" name="endereco" placeholder="Endereço" required>
         </div>
         <div class="input-group">
           <i class="fas fa-id-badge"></i>
-          <input type="text" name="crmv" placeholder="      CRMV" required>
+          <input type="text" name="crmv" placeholder="CRMV" required>
         </div>
         <div class="input-group">
           <i class="fas fa-briefcase-medical"></i>
-          <input type="text" name="especializacao" placeholder="      Especialização" required>
+          <input type="text" name="especializacao" placeholder="Especialização" required>
         </div>
         <div class="input-group status-group">
           <label for="status">Status:</label>
@@ -133,7 +133,6 @@ if (isset($_SESSION['error_message'])) {
   </div>
 
   <script>
-    // Função para mostrar o formulário de cadastro correto
     function showForm(formId) {
       const forms = document.querySelectorAll('.form');
       const tabs = document.querySelectorAll('.tab');
@@ -143,7 +142,6 @@ if (isset($_SESSION['error_message'])) {
       document.querySelector(`.tab[onclick="showForm('${formId}')"]`).classList.add('active');
     }
 
-    // Exibir a mensagem de sucesso com animação
     window.addEventListener('load', function() {
       const successMessageContainer = document.querySelector('.success-message-container');
       if (successMessageContainer) {
@@ -153,7 +151,6 @@ if (isset($_SESSION['error_message'])) {
         }, 100);
       }
 
-      // Esconder a mensagem de sucesso quando clicar no botão "OK"
       const okButton = document.getElementById('ok-button');
       if (okButton) {
         okButton.addEventListener('click', function() {

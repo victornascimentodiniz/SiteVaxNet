@@ -54,7 +54,14 @@
   }
   
   .input-group {
+    display: flex;
+    align-items: center;
+    position: relative;
     margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 5px;
+    background-color: #fff;
   }
   
   .input-group input {
@@ -234,12 +241,9 @@
     font-weight: bold;
   }
   .input-group i {
-    position: absolute;
-    top: 50%;
-    left: 10px;
-    transform: translateY(-50%);
-    color: #888;
+    color: #555;
     font-size: 16px;
+    margin-left: 10px;
   }
   
   .register-button:hover,
@@ -260,20 +264,23 @@
 
   /* Grupo de entrada com ícones */
 .input-group {
+  display: flex;
+  align-items: center;
   position: relative;
-  margin-bottom: 20px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 5px;
+  background-color: #fff;
 }
 
 .input-group input {
-  width: 100%;
-  padding-left: 40px; /* Espaço à esquerda para o ícone */
-  padding-right: 10px;
-  padding-top: 10px;
-  padding-bottom: 10px;
-  border: 1px solid #ddd;
-  border-radius: 5px;
+  flex: 1;
+  border: none;
+  outline: none;
+  padding: 10px;
   font-size: 14px;
-  box-sizing: border-box;
+  margin-left: 10px;
 }
 
 /* Ícones dentro do campo de entrada */

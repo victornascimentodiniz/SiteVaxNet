@@ -2,7 +2,7 @@
 // Conexão com o banco de dados
 $host = 'localhost';
 $username = 'root'; // Substitua pelo seu usuário
-$password = ''; // Substitua pela sua senha
+$password = 'root'; // Substitua pela sua senha
 $dbname = 'Vaxnet'; // Substitua pelo nome do seu banco de dados
 
 $conn = new mysqli($host, $username, $password, $dbname);
