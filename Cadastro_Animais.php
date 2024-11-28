@@ -140,5 +140,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
       <button type="submit" class="submit-btn">Cadastrar</button>
     </form>
   </div>
+  <?php include('footer.php'); ?>
 </body>
 </html>

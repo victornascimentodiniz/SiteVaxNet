@@ -154,5 +154,6 @@ $result = $conn->query($sql);
         });
     }, 3000);
   </script>
+  <?php include('footer.php'); ?>
 </body>
 </html>

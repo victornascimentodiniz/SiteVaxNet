@@ -9,5 +9,6 @@
 </head>
 <body>
     <h1>Tela Sobre o Grupo </h1>
+    <?php include('footer.php'); ?>
 </body>
 </html>
