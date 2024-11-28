@@ -10,7 +10,7 @@ if (!isset($_SESSION['user'])) {
 // Configuração de conexão com o banco de dados
 $servername = "localhost";
 $username = "root";
-$password = "root";
+$password = "";
 $dbname = "VaxNet";
 
 // Criar conexão
@@ -33,8 +33,12 @@ if ($role === 'usuario') {
     $sql = "SELECT nome FROM cadastro_veterinario WHERE email = ?";
 }
 
+// Verificar se a consulta foi definida corretamente
 if (!empty($sql)) {
     $stmt = $conn->prepare($sql);
+    if (!$stmt) {
+        die("Erro ao preparar a consulta: " . $conn->error); // Erro de preparação
+    }
     $stmt->bind_param("s", $email);
     $stmt->execute();
     $result = $stmt->get_result();
@@ -46,26 +50,32 @@ if (!empty($sql)) {
         $name = "Usuário não encontrado"; // Se não encontrar o nome
     }
     $stmt->close();
+} else {
+    die("Consulta SQL não definida.");
 }
 
-// Buscar mensagens destinadas ao usuário logado
-$messages = [];
-$sql_messages = "SELECT remetente_email, mensagem, data_envio 
-                 FROM mensagens 
-                 WHERE destinatario_email = ? 
-                 ORDER BY data_envio DESC";
-$stmt_messages = $conn->prepare($sql_messages);
-$stmt_messages->bind_param("s", $email);
-$stmt_messages->execute();
-$result_messages = $stmt_messages->get_result();
+// Buscar todos os avisos (sem filtrar por email_destinatario)
+$avisos = [];
+$sql_avisos = "SELECT titulo, descricao, responsavel, data_aviso, data_evento 
+               FROM avisos 
+               WHERE ativo = 1 
+               ORDER BY data_aviso DESC";
 
-if ($result_messages->num_rows > 0) {
-    while ($row = $result_messages->fetch_assoc()) {
-        $messages[] = $row;
+$stmt_avisos = $conn->prepare($sql_avisos);
+if (!$stmt_avisos) {
+    die("Erro ao preparar a consulta de avisos: " . $conn->error);
+}
+
+$stmt_avisos->execute();
+$result_avisos = $stmt_avisos->get_result();
+
+if ($result_avisos->num_rows > 0) {
+    while ($row = $result_avisos->fetch_assoc()) {
+        $avisos[] = $row;
     }
 }
 
-$stmt_messages->close();
+$stmt_avisos->close();
 $conn->close();
 ?>
 
@@ -97,20 +107,20 @@ $conn->close();
           </ul>
           <button onclick="window.location.href='Cadastro_Animais.php'">Ir para Cadastro</button>
         <?php endif; ?>
-      </div>
 
-      <!-- Mensagens -->
-      <div class="messages-section">
-        <h2>Suas Mensagens</h2>
-        <?php if (empty($messages)): ?>
-          <p>Você não tem mensagens novas.</p>
+        <!-- Exibir Avisos -->
+        <h2>Avisos Importantes</h2>
+        <?php if (empty($avisos)): ?>
+          <p>Não há avisos para você no momento.</p>
         <?php else: ?>
           <ul>
-            <?php foreach ($messages as $message): ?>
+            <?php foreach ($avisos as $aviso): ?>
               <li>
-                <strong>De: <?php echo htmlspecialchars($message['remetente_email']); ?></strong><br>
-                <em>Recebido em: <?php echo date("d/m/Y H:i:s", strtotime($message['data_envio'])); ?></em>
-                <p><?php echo nl2br(htmlspecialchars($message['mensagem'])); ?></p>
+                <strong><?php echo htmlspecialchars($aviso['titulo']); ?></strong><br>
+                <em>Data de criação: <?php echo date("d/m/Y", strtotime($aviso['data_aviso'])); ?></em>
+                <p><?php echo nl2br(htmlspecialchars($aviso['descricao'])); ?></p>
+                <p><strong>Responsável:</strong> <?php echo htmlspecialchars($aviso['responsavel']); ?></p>
+                <p><strong>Data do Evento:</strong> <?php echo date("d/m/Y H:i", strtotime($aviso['data_evento'])); ?></p>
               </li>
             <?php endforeach; ?>
           </ul>

@@ -5,7 +5,7 @@ include('navbar.php');
 // Conexão ao banco de dados
 $servername = "localhost";
 $username = "root";  
-$password = "root";      
+$password = "";      
 $dbname = "VaxNet";  
 
 $conn = new mysqli($servername, $username, $password, $dbname);
