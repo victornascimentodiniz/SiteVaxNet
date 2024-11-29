@@ -58,7 +58,7 @@ $current_page = basename($_SERVER['PHP_SELF']);
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="navbar_usuario.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-  <title>Navbar</title>
+  <title>VaxNet</title>
 </head>
 <body>
   <!-- Navbar Horizontal -->
@@ -96,7 +96,7 @@ $current_page = basename($_SERVER['PHP_SELF']);
       <li><a href="Veterinario.php" class="<?= $current_page == 'Veterinario.php' ? 'active' : '' ?>"><i class="fa-solid fa-user-doctor"></i> Veterinário</a></li>
       <li><a href="Mensagem_Automatica.php" class="<?= $current_page == 'Mensagem_Automatica.php' ? 'active' : '' ?>"><i class="fas fa-comments"></i> Mensagens Automáticas</a></li>
       <li><a href="Monitoramento.php" class="<?= $current_page == 'Monitoramento.php' ? 'active' : '' ?>"><i class="fas fa-chart-line"></i> Monitoramento</a></li>
-      <li><a href="Sobre.php" class="<?= $current_page == 'Sobre.php' ? 'active' : '' ?>"><i class="fas fa-info-circle"></i> Sobre</a></li>
+      <li><a href="Sobr.php" class="<?= $current_page == 'Sobr.php' ? 'active' : '' ?>"><i class="fas fa-info-circle"></i> Sobre</a></li>
       <li><a href="Contato.php" class="<?= $current_page == 'Contato.php' ? 'active' : '' ?>"><i class="fas fa-envelope"></i> Contato</a></li>
     </ul>
   </nav>

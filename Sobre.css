@@ -1,0 +1,76 @@
+/* Ajuste para compensar o espaço ocupado pela navbar */
+.main-content {
+    margin-left: 200px; /* Espaço para a navbar vertical */
+    margin-top: 90px;  /* Espaço para a navbar horizontal */
+    padding: 2rem;
+    background-color: #f1f1f1;
+    min-height: calc(100vh - 90px); /* Compensar o topo */
+    overflow-y: auto;
+  }
+  
+  /* Efeito de transição para navegação suave */
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  /* Navbar horizontal com comportamento fixo */
+  .navbar-horizontal {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+  /* Estilo do Rodapé */
+.site-footer {
+  background-color: #111; /* Fundo escuro */
+  color: #ccc; /* Texto claro */
+  text-align: center;
+  padding: 20px;
+  width: 100%; /* Ocupe toda a largura da tela */
+  font-size: 14px;
+  font-family: Arial, sans-serif;
+  margin-top: 30px;
+}
+
+.site-footer .social-icons {
+  margin-bottom: 15px;
+}
+
+.site-footer .social-icons a {
+  color: #fff;
+  text-decoration: none;
+  margin: 0 10px;
+  font-size: 18px;
+}
+
+.site-footer .social-icons a:hover {
+  color: #00bcd4; /* Cor de destaque ao passar o mouse */
+}
+
+.site-footer .footer-links,
+.site-footer .footer-policies {
+  margin-bottom: 10px;
+}
+
+.site-footer .footer-links a,
+.site-footer .footer-policies a {
+  color: #ccc;
+  text-decoration: none;
+  margin: 0 5px;
+}
+
+.site-footer .footer-links a:hover,
+.site-footer .footer-policies a:hover {
+  color: #fff; /* Cor de destaque ao passar o mouse */
+}
+
+.site-footer span {
+  margin: 0 5px;
+  color: #666; /* Separadores */
+}
+
+.site-footer p {
+  margin: 10px 0 0;
+  font-size: 12px;
+  color: #666;
+}
+  
