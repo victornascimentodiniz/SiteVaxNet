@@ -7,7 +7,7 @@ $username = "root";
 $password = "root";
 $dbname = "VaxNet";
 
-// Criar conexão
+// Criar conexão com o banco de dados
 $conn = new mysqli($servername, $username, $password, $dbname);
 
 // Verificar a conexão
@@ -15,38 +15,65 @@ if ($conn->connect_error) {
     die("Falha na conexão: " . $conn->connect_error);
 }
 
+// Inicializar variáveis de controle
 $cadastroSucesso = false;
 
 // Verificar se o formulário foi enviado
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $tipo = $_POST['tipo']; // Verificar o tipo de cadastro
+    // Capturar os dados enviados pelo formulário
+    $tipo = $_POST['tipo']; // Define se é usuário ou veterinário
     $nome = $_POST['nome'];
     $email = $_POST['email'];
     $senha = password_hash($_POST['senha'], PASSWORD_DEFAULT); // Criptografar a senha
     $telefone = $_POST['telefone'];
     $endereco = $_POST['endereco'];
-    $dataNascimento = $_POST['data_nascimento'] ?? null; // Caso o campo seja opcional
-    $dataCriacao = date("Y-m-d H:i:s"); // Pega a data atual
-    $dataAtualizacao = $dataCriacao;
 
     if ($tipo === 'usuario') {
-        // Inserir dados na tabela cadastro_usuario
+        // Dados adicionais para usuários
+        $dataNascimento = $_POST['data_nascimento'] ?? null; // Campo opcional
+        $dataCriacao = date("Y-m-d H:i:s");
+        $dataAtualizacao = $dataCriacao;
+
+        // SQL para inserir o cadastro de usuário
         $sql = "INSERT INTO cadastro_usuario (nome, email, senha, telefone, data_nascimento, endereco, data_criacao, data_atualizacao) 
                 VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
         $stmt = $conn->prepare($sql);
         $stmt->bind_param("ssssssss", $nome, $email, $senha, $telefone, $dataNascimento, $endereco, $dataCriacao, $dataAtualizacao);
+    } elseif ($tipo === 'veterinario') {
+        // Dados adicionais para veterinários
+        $crmv = $_POST['crmv'];
+        $especializacao = $_POST['especializacao'];
+        $status = $_POST['status'];
 
-        if ($stmt->execute()) {
-            $cadastroSucesso = true;
-        } else {
-            echo "Erro ao cadastrar: " . $stmt->error;
-        }
-        $stmt->close();
+        // SQL para inserir o cadastro de veterinário
+        $sql = "INSERT INTO cadastro_veterinario (nome, email, senha, telefone, endereco, crmv, especialidade, status) 
+                VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+        $stmt = $conn->prepare($sql);
+        $stmt->bind_param("ssssssss", $nome, $email, $senha, $telefone, $endereco, $crmv, $especializacao, $status);
     }
+
+    // Executar a consulta preparada
+    if ($stmt->execute()) {
+        $_SESSION['success_message'] = "Cadastro realizado com sucesso!";
+        $cadastroSucesso = true;
+    } else {
+        $_SESSION['error_message'] = "Erro ao cadastrar: " . $stmt->error;
+    }
+
+    // Fechar a declaração
+    $stmt->close();
 }
 
+// Fechar a conexão
 $conn->close();
+
+// Redirecionar para a tela de login após o cadastro bem-sucedido
+if ($cadastroSucesso) {
+    header("Location: Login1.php");
+    exit();
+}
 ?>
+
 
 <!DOCTYPE html>
 <html lang="pt-BR">
