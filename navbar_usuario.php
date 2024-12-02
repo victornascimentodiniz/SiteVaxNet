@@ -10,7 +10,7 @@ if (!isset($_SESSION['user'])) {
 // Configuração de conexão com o banco de dados
 $servername = "localhost";
 $username = "root";
-$password = "root";
+$password = "";
 $dbname = "VaxNet";
 
 // Criar conexão
@@ -91,8 +91,6 @@ $current_page = basename($_SERVER['PHP_SELF']);
     <ul>
       <li><a href="Home_Usuario.php" class="<?= $current_page == 'Home_Usuario.php' ? 'active' : '' ?>"><i class="fas fa-home"></i> Home</a></li>
       <li><a href="Cadastro_Animais_Usuario.php" class="<?= $current_page == 'Cadastro_Animais_Usuario.php' ? 'active' : '' ?>"><i class="fas fa-plus-circle"></i> Cadastro de Animais</a></li>
-      <li><a href="Veterinario.php" class="<?= $current_page == 'Veterinario.php' ? 'active' : '' ?>"><i class="fa-solid fa-user-doctor"></i> Veterinário</a></li>
-      <li><a href="Monitoramento.php" class="<?= $current_page == 'Monitoramento.php' ? 'active' : '' ?>"><i class="fas fa-chart-line"></i> Monitoramento</a></li>
       <li><a href="Sobre.php" class="<?= $current_page == 'Sobre.php' ? 'active' : '' ?>"><i class="fas fa-info-circle"></i> Sobre</a></li>
       <li><a href="Contato.php" class="<?= $current_page == 'Contato.php' ? 'active' : '' ?>"><i class="fas fa-envelope"></i> Contato</a></li>
     </ul>

@@ -10,7 +10,7 @@ if (!isset($_SESSION['user']) || $_SESSION['role'] !== 'veterinario') {
 // Configuração de conexão com o banco de dados
 $servername = "localhost";
 $username = "root";
-$password = "root";
+$password = "";
 $dbname = "VaxNet";
 
 // Criar conexão

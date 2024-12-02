@@ -10,7 +10,7 @@ if (!isset($_SESSION['user'])) {
 // Configuração de conexão com o banco de dados
 $servername = "localhost";
 $username = "root";
-$password = "root";
+$password = "";
 $dbname = "VaxNet";
 
 // Criar conexão
@@ -93,10 +93,8 @@ $current_page = basename($_SERVER['PHP_SELF']);
       <li><a href="Cadastro_Animais.php" class="<?= $current_page == 'Cadastro_Animais.php' ? 'active' : '' ?>"><i class="fas fa-plus-circle"></i> Cadastro de Animais</a></li>
       <li><a href="Cadastro_Vacina.php" class="<?= $current_page == 'Cadastro_Vacina.php' ? 'active' : '' ?>"><i class="fas fa-syringe"></i> Vacinas</a></li>
       <li><a href="Animais_Cadastrados.php" class="<?= $current_page == 'Animais_Cadastrados.php' ? 'active' : '' ?>"><i class="fas fa-paw"></i> Animais</a></li>
-      <li><a href="Veterinario.php" class="<?= $current_page == 'Veterinario.php' ? 'active' : '' ?>"><i class="fa-solid fa-user-doctor"></i> Veterinário</a></li>
       <li><a href="Aviso.php" class="<?= $current_page == 'Aviso.php' ? 'active' : '' ?>"><i class="fas fa-comments"></i> Mensagens Automáticas</a></li>
-      <li><a href="Monitoramento.php" class="<?= $current_page == 'Monitoramento.php' ? 'active' : '' ?>"><i class="fas fa-chart-line"></i> Monitoramento</a></li>
-      <li><a href="Sobr.php" class="<?= $current_page == 'Sobr.php' ? 'active' : '' ?>"><i class="fas fa-info-circle"></i> Sobre</a></li>
+      <li><a href="Sobre_ia.php" class="<?= $current_page == 'Sobre_ia.php' ? 'active' : '' ?>"><i class="fas fa-info-circle"></i> Sobre</a></li>
       <li><a href="Contato.php" class="<?= $current_page == 'Contato.php' ? 'active' : '' ?>"><i class="fas fa-envelope"></i> Contato</a></li>
     </ul>
   </nav>

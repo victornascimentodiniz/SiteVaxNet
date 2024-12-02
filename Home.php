@@ -9,10 +9,13 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
+  <h1>.</h1>
+  <h1>.</h1>
+  <h1></h1>
   <!-- Container Principal da Página -->
   <div class="home-container">
     <h2>Bem-vindo, <span id="user-name">
-      <?php echo strtoupper($_SESSION['name'] ?? 'Usuário'); ?>
+      <?php echo strtoupper($_SESSION['name'] ?? 'David Yehud'); ?>
     </span></h2>
     <!-- Painel de Estatísticas -->
     <div class="stats-panel">

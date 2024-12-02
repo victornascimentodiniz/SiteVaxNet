@@ -3,7 +3,7 @@ session_start(); // Inicia a sessão
 // Configuração de conexão ao banco de dados
 $servername = "localhost";
 $username = "root";  
-$password = "root";      
+$password = "";      
 $dbname = "VaxNet";  
 
 // Criar conexão
